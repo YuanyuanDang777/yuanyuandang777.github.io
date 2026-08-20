@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teaching · 党媛媛 Yuanyuan Dang</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Saira:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="assets/img/profile.jpg">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a class="brand" href="index.html"><span class="cn">党媛媛</span>Yuanyuan Dang</a>
+    <div class="nav-links">
+      <a href="index.html">About</a>
+      <a href="publications.html">Publications</a>
+      <a href="projects.html">Projects</a>
+      <a href="teaching.html" class="active">Teaching</a>
+      <a href="awards.html">Awards</a>
+      <button id="theme-toggle" title="Toggle light / dark mode" aria-label="Toggle theme">🌙</button>
+    </div>
+  </div>
+</nav>
+
+<main class="container">
+
+  <header class="page-header">
+    <h1>Teaching</h1>
+    <p class="desc">教学注重沉浸式与体验式课堂设计，重视案例对比、即时投票与高参与度互动，让学生在真实情境中理解管理与分析方法。</p>
+  </header>
+
+  <section>
+    <h2 class="sec-title">本科与研究生课程 · 华南理工大学</h2>
+
+    <div class="teach-item">
+      <h3><span class="cn-name">《人工智能导论》</span> · Introduction to Artificial Intelligence</h3>
+      <p>面向人工智能基础概念、机器学习与深度学习基本方法及其在管理与医疗健康领域应用的导论课程。</p>
+    </div>
+
+    <div class="teach-item">
+      <h3><span class="cn-name">《大数据与因果推断》</span> · Big Data and Causal Inference</h3>
+      <p>讲授面向 observational data 的因果识别方法，涵盖双重差分（DID）、断点回归（RDD）、工具变量（IV）、倾向得分匹配（PSM）等方法及其在大数据场景下的应用。</p>
+    </div>
+
+    <div class="teach-item">
+      <h3><span class="cn-name">《管理学原理》</span> · Principles of Management</h3>
+      <p>管理学基础课程，系统讲授计划、组织、领导与控制等管理职能，结合中国企业管理案例开展教学。</p>
+    </div>
+
+    <div class="teach-item">
+      <h3><span class="cn-name">《工业工程基础》</span> · Fundamentals of Industrial Engineering</h3>
+      <p>工业工程概论课程，涵盖生产与服务系统的效率分析、流程优化与运营管理基础方法。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec-title">学生培养</h2>
+    <p style="margin-top:.6rem;">招收与培养管理科学与工程方向博士、硕士研究生，研究方向包括智慧医疗与健康服务管理、数字健康与互联网医疗、医疗运营管理与激励机制设计。欢迎具有管理学、计算机、统计学或医学背景、对数智化医疗健康研究有兴趣的同学报考。</p>
+  </section>
+
+</main>
+
+<footer>
+  © 2026 Yuanyuan Dang (党媛媛) · School of Business Administration, South China University of Technology
+</footer>
+
+<script>
+(function () {
+  var toggle = document.getElementById('theme-toggle');
+  var stored = null;
+  try { stored = localStorage.getItem('theme'); } catch (e) {}
+  var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  var theme = stored || (prefersDark ? 'dark' : 'light');
+  document.documentElement.setAttribute('data-theme', theme);
+  toggle.textContent = theme === 'dark' ? '☀' : '🌙';
+  toggle.addEventListener('click', function () {
+    var cur = document.documentElement.getAttribute('data-theme');
+    var next = cur === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    toggle.textContent = next === 'dark' ? '☀' : '🌙';
+    try { localStorage.setItem('theme', next); } catch (e) {}
+  });
+})();
+</script>
+
+</body>
+</html>
