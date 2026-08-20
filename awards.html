@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Awards · 党媛媛 Yuanyuan Dang</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Saira:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="assets/img/profile.jpg">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a class="brand" href="index.html"><span class="cn">党媛媛</span>Yuanyuan Dang</a>
+    <div class="nav-links">
+      <a href="index.html">About</a>
+      <a href="publications.html">Publications</a>
+      <a href="projects.html">Projects</a>
+      <a href="teaching.html">Teaching</a>
+      <a href="awards.html" class="active">Awards</a>
+      <button id="theme-toggle" title="Toggle light / dark mode" aria-label="Toggle theme">🌙</button>
+    </div>
+  </div>
+</nav>
+
+<main class="container">
+
+  <header class="page-header">
+    <h1>Awards &amp; Funds</h1>
+    <p class="desc">荣誉与基金项目 · 学术兼职与同行评议服务</p>
+  </header>
+
+  <section>
+    <h2 class="sec-title">荣誉 · Honors</h2>
+    <ul class="award-list">
+      <li>
+        <span class="award-name">国家级青年人才</span>
+        <span class="award-note">National Young Talent Program</span>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="sec-title">主持科研项目 · Funded Research (PI)</h2>
+    <ul class="award-list">
+      <li>
+        <span class="award-name">国家自然科学基金面上项目 (72471095)</span>
+        <span class="award-note">《互联网医院医生团队激励》· 主持</span>
+        <span class="award-year">2025 –</span>
+      </li>
+      <li>
+        <span class="award-name">国家自然科学基金青年科学基金项目 (72101090)</span>
+        <span class="award-note">《慢性病移动医疗应用程序用户激励机制研究》· 主持</span>
+        <span class="award-year">2022 – 2024</span>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="sec-title">参与科研项目 · Participated</h2>
+    <ul class="award-list">
+      <li>
+        <span class="award-name">国家自然科学基金创新研究群体项目</span>
+        <span class="award-note">骨干成员</span>
+      </li>
+      <li>
+        <span class="award-name">国家自然科学基金青年项目 (71801062)</span>
+        <span class="award-note">《在线医疗社区中医患间医疗保健资源的社会交换研究》· 主要参与者</span>
+        <span class="award-year">2019 – 2021</span>
+      </li>
+      <li>
+        <span class="award-name">国家自然科学基金面上项目 (71871074)</span>
+        <span class="award-note">《基于社交媒体支持的医疗保健——作用机理与模式创新》· 主要参与者</span>
+        <span class="award-year">2018 – 2021</span>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="sec-title">学术兼职 · Academic Service</h2>
+    <ul class="award-list">
+      <li>
+        <span class="award-name">广东省教育厅智慧医疗健康服务管理重点实验室</span>
+        <span class="award-note">副主任</span>
+      </li>
+      <li>
+        <span class="award-name">中国运筹学会行为运筹与管理分会</span>
+        <span class="award-note">理事</span>
+      </li>
+      <li>
+        <span class="award-name">期刊审稿人</span>
+        <span class="award-note">Information &amp; Management (I&amp;M)、Decision Support Systems (DSS) 等</span>
+      </li>
+      <li>
+        <span class="award-name">华南理工大学科技商学院</span>
+        <span class="award-note">筹建负责人</span>
+      </li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  © 2026 Yuanyuan Dang (党媛媛) · School of Business Administration, South China University of Technology
+</footer>
+
+<script>
+(function () {
+  var toggle = document.getElementById('theme-toggle');
+  var stored = null;
+  try { stored = localStorage.getItem('theme'); } catch (e) {}
+  var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  var theme = stored || (prefersDark ? 'dark' : 'light');
+  document.documentElement.setAttribute('data-theme', theme);
+  toggle.textContent = theme === 'dark' ? '☀' : '🌙';
+  toggle.addEventListener('click', function () {
+    var cur = document.documentElement.getAttribute('data-theme');
+    var next = cur === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    toggle.textContent = next === 'dark' ? '☀' : '🌙';
+    try { localStorage.setItem('theme', next); } catch (e) {}
+  });
+})();
+</script>
+
+</body>
+</html>
