@@ -1,7 +1,5 @@
 # 党媛媛 Yuanyuan Dang · 学术个人主页
 
-模仿 [Kate Wenqi Zhu](https://katewenqizhu.github.io/)（基于 al-folio 主题）的页面结构与设计语言，为党老师定制的纯静态学术主页。**无需任何构建工具**——直接打开 `index.html` 即可预览，推送至 GitHub 仓库即可发布。
-
 ## 站点结构（与 Kate 站点逐页对应）
 
 | 页面 | 对应 Kate 站点 | 内容 |
