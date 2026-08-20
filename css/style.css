@@ -1,0 +1,284 @@
+/* ============================================================
+   Yuanyuan Dang — Academic Homepage
+   Design adapted from the al-folio Jekyll theme's visual language
+   (dark navbar · clean cards · publication badges · light/dark toggle)
+   ============================================================ */
+
+:root {
+  --bg: #ffffff;
+  --text: #212529;
+  --text-light: #6c757d;
+  --theme: #0e6e7e;          /* deep teal — healthcare & business */
+  --theme-dark: #0a5260;
+  --nav-bg: #0d2438;          /* al-folio dark navy navbar */
+  --nav-text: #ffffff;
+  --divider: rgba(0, 0, 0, 0.1);
+  --card-bg: #ffffff;
+  --card-border: rgba(0, 0, 0, 0.1);
+  --code-bg: #f7f7f7;
+  --badge-bg: #f0f3f5;
+  --shadow: 0 2px 8px rgba(13, 36, 56, 0.08);
+  --footer-bg: #1c1c1d;
+  --footer-text: #b0b0b0;
+  --utd-gold: #b78a00;
+  --venue-teal: #0e6e7e;
+  --conf-gray: #5a6268;
+  --link: #0e6e7e;
+  --link-hover: #084c57;
+}
+
+[data-theme="dark"] {
+  --bg: #16181c;
+  --text: #e4e6eb;
+  --text-light: #9aa0a6;
+  --theme: #4fc3d9;
+  --theme-dark: #7ad4e6;
+  --divider: rgba(255, 255, 255, 0.12);
+  --card-bg: #1f2328;
+  --card-border: rgba(255, 255, 255, 0.12);
+  --code-bg: #2c3237;
+  --badge-bg: #2a2f36;
+  --shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+  --footer-bg: #101216;
+  --footer-text: #8a9096;
+  --link: #4fc3d9;
+  --link-hover: #7ad4e6;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.75;
+  transition: background 0.25s ease, color 0.25s ease;
+  padding-bottom: 56px; /* room for fixed footer */
+}
+
+a { color: var(--link); text-decoration: none; transition: color .15s; }
+a:hover { color: var(--link-hover); text-decoration: underline; }
+
+h1, h2, h3, h4 { font-family: "Saira", "Helvetica Neue", "PingFang SC", "Microsoft YaHei", Arial, sans-serif; font-weight: 600; line-height: 1.3; }
+
+.container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+
+/* ---------------- Navbar ---------------- */
+.navbar {
+  position: sticky; top: 0; z-index: 1000;
+  background: var(--nav-bg);
+  box-shadow: 0 1px 6px rgba(0,0,0,0.25);
+}
+.navbar-inner {
+  max-width: 1140px; margin: 0 auto; padding: 0 24px;
+  display: flex; align-items: center; justify-content: space-between;
+  min-height: 56px; flex-wrap: wrap;
+}
+.brand {
+  color: var(--nav-text) !important;
+  font-family: "Saira", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 1.15rem; font-weight: 600; letter-spacing: .02em;
+  text-decoration: none !important;
+}
+.brand:hover { opacity: .9; }
+.brand .cn { margin-right: .5rem; }
+.nav-links { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+.nav-links a {
+  color: rgba(255,255,255,.85); text-decoration: none !important;
+  padding: 8px 12px; font-size: .95rem; border-radius: 4px;
+  transition: background .15s, color .15s;
+}
+.nav-links a:hover { color: #fff; background: rgba(255,255,255,.12); }
+.nav-links a.active { color: #fff; background: rgba(255,255,255,.18); }
+#theme-toggle {
+  background: transparent; border: none; color: rgba(255,255,255,.85);
+  cursor: pointer; font-size: 1.05rem; padding: 8px 10px; border-radius: 4px;
+  line-height: 1;
+}
+#theme-toggle:hover { background: rgba(255,255,255,.12); }
+
+/* ---------------- Page header ---------------- */
+.page-header { padding: 3rem 0 1.2rem; border-bottom: 1px solid var(--divider); margin-bottom: 2.2rem; }
+.page-header h1 { margin: 0 0 .35rem; font-size: 2.2rem; }
+.page-header .desc { color: var(--text-light); margin: 0; font-size: 1.02rem; }
+
+/* ---------------- Profile (about page) ---------------- */
+.profile { display: flex; gap: 2.5rem; align-items: flex-start; flex-wrap: wrap; margin-bottom: 2.6rem; }
+.profile-info { flex: 1 1 380px; min-width: 300px; }
+.profile-info h1 { font-size: 2.3rem; margin: 0 0 .3rem; }
+.profile-role { font-size: 1.15rem; color: var(--text); font-weight: 500; margin: 0 0 .15rem; }
+.profile-org { font-size: 1.05rem; color: var(--text-light); margin: 0; }
+.profile-org a { color: var(--link); }
+.profile-more { margin-top: .8rem; font-size: .92rem; color: var(--text-light); line-height: 1.6; }
+.profile-img { flex: 0 0 240px; }
+.profile-img img {
+  width: 240px; height: 280px; object-fit: cover;
+  border-radius: 8px; box-shadow: var(--shadow);
+  background: linear-gradient(135deg, #0d2438 0%, #0e6e7e 100%);
+  display: block;
+}
+
+/* ---------------- Section headings ---------------- */
+section h2.sec-title {
+  font-size: 1.45rem; margin: 2.4rem 0 1rem;
+  color: var(--theme); letter-spacing: .01em;
+}
+.sec-rule { border: none; border-top: 1px solid var(--divider); margin: 2.6rem 0 0; }
+
+/* ---------------- Cards (interests / education) ---------------- */
+.card-row { display: flex; gap: 1.6rem; flex-wrap: wrap; margin-top: 1rem; }
+.card {
+  flex: 1 1 300px; background: var(--card-bg);
+  border: 1px solid var(--card-border); border-radius: 8px;
+  box-shadow: var(--shadow); overflow: hidden;
+}
+.card h3 {
+  margin: 0; padding: .8rem 1.3rem .55rem;
+  font-size: 1.05rem; color: var(--theme); font-weight: 600;
+}
+.card-body { padding: .2rem 1.3rem 1.1rem; }
+.card ul { margin: .4rem 0 0; padding-left: 1.2rem; }
+.card ul li { margin: .32rem 0; font-size: .97rem; }
+
+/* Education timeline */
+.edu-item { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding: .5rem 0; border-bottom: 1px dashed var(--divider); }
+.edu-item:last-child { border-bottom: none; }
+.edu-course { font-weight: 500; font-size: .97rem; }
+.edu-inst { color: var(--text-light); font-size: .92rem; }
+.edu-year { white-space: nowrap; color: var(--text-light); font-size: .88rem; font-variant-numeric: tabular-nums; }
+
+/* ---------------- News ---------------- */
+.news-list { margin: .6rem 0 0; padding: 0; list-style: none; }
+.news-item { display: flex; gap: 1rem; padding: .45rem 0; align-items: baseline; }
+.news-badge {
+  flex: 0 0 auto; background: var(--badge-bg); color: var(--text-light);
+  border-radius: 4px; font-size: .78rem; padding: .12rem .5rem;
+  font-weight: 600; letter-spacing: .03em; white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.news-text { font-size: .97rem; }
+
+/* ---------------- Publications (featured, home) ---------------- */
+.pub-featured {
+  display: flex; gap: 1.4rem; padding: 1.15rem 0;
+  border-bottom: 1px solid var(--divider); align-items: flex-start;
+}
+.pub-featured:last-child { border-bottom: none; }
+.pub-abbr {
+  flex: 0 0 92px; text-align: center;
+  background: var(--badge-bg); color: var(--text);
+  border-radius: 6px; padding: .55rem .4rem; font-size: .8rem;
+  font-weight: 700; line-height: 1.35; letter-spacing: .02em;
+  box-shadow: inset 0 0 0 1px var(--card-border);
+}
+.pub-abbr small { display: block; font-weight: 500; color: var(--text-light); font-size: .72rem; margin-top: .15rem; }
+.pub-main { flex: 1 1 auto; }
+.pub-authors { margin: 0 0 .15rem; font-size: .95rem; }
+.pub-authors .self { font-weight: 700; }
+.pub-venue-row { display: flex; gap: .5rem; flex-wrap: wrap; align-items: center; margin: .1rem 0 .3rem; }
+.pub-venue { font-size: .95rem; color: var(--text-light); }
+.badge {
+  display: inline-block; font-size: .72rem; font-weight: 700;
+  border-radius: 999px; padding: .14rem .6rem; letter-spacing: .03em;
+}
+.badge-utd { background: rgba(183, 138, 0, .14); color: var(--utd-gold); border: 1px solid rgba(183,138,0,.4); }
+.badge-teal { background: rgba(14, 110, 126, .12); color: var(--venue-teal); border: 1px solid rgba(14,110,126,.35); }
+.badge-gray { background: var(--badge-bg); color: var(--conf-gray); border: 1px solid var(--card-border); }
+[data-theme="dark"] .badge-teal { background: rgba(79,195,217,.12); color: #6fd3e4; border-color: rgba(79,195,217,.35); }
+[data-theme="dark"] .badge-utd { background: rgba(230,190,60,.12); color: #e6be3c; border-color: rgba(230,190,60,.4); }
+.pub-title { font-size: 1.06rem; font-weight: 600; margin: .15rem 0 .35rem; line-height: 1.45; }
+.pub-desc { margin: 0 0 .45rem; color: var(--text-light); font-size: .93rem; }
+.pub-links { display: flex; gap: .5rem; flex-wrap: wrap; }
+.btn-link {
+  display: inline-block; font-size: .82rem; font-weight: 600;
+  color: var(--theme) !important; border: 1.5px solid var(--theme);
+  border-radius: 5px; padding: .22rem .8rem; text-decoration: none !important;
+  transition: all .15s;
+}
+.btn-link:hover { background: var(--theme); color: #fff !important; }
+[data-theme="dark"] .btn-link:hover { color: #16181c !important; }
+
+/* ---------------- Publications page (condensed list) ---------------- */
+.pub-condensed { counter-reset: pubcounter; }
+.pub-lead { color: var(--text-light); font-size: .95rem; }
+h2.pub-group {
+  font-size: 1.15rem; color: var(--theme);
+  margin: 2.2rem 0 .8rem; padding-bottom: .35rem;
+  border-bottom: 1px solid var(--divider);
+}
+ol.pub-list { margin: 0; padding-left: 1.6rem; }
+ol.pub-list li { margin: .65rem 0; font-size: .95rem; line-height: 1.65; }
+.pub-lk a {
+  font-size: .82rem; font-weight: 600; margin-left: .6rem;
+  color: var(--link); text-decoration: underline;
+}
+.pub-st { color: var(--utd-gold); font-weight: 600; font-size: .85rem; }
+.pub-crown { color: var(--utd-gold); font-size: .85rem; font-weight: 600; }
+
+/* ---------------- Projects ---------------- */
+.proj-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.4rem; margin-top: 1.2rem; }
+.proj-card {
+  background: var(--card-bg); border: 1px solid var(--card-border);
+  border-radius: 8px; box-shadow: var(--shadow); padding: 1.2rem 1.4rem;
+  border-top: 3px solid var(--theme);
+}
+.proj-card h3 { margin: 0 0 .3rem; font-size: 1.05rem; }
+.proj-card .proj-meta { font-size: .85rem; color: var(--text-light); margin-bottom: .5rem; }
+.proj-card p { margin: 0; font-size: .93rem; color: var(--text); }
+.tag-row { margin-top: .7rem; display: flex; gap: .4rem; flex-wrap: wrap; }
+
+/* ---------------- Teaching ---------------- */
+.teach-item { padding: 1rem 0; border-bottom: 1px dashed var(--divider); }
+.teach-item:last-child { border-bottom: none; }
+.teach-item h3 { margin: 0 0 .3rem; font-size: 1.08rem; }
+.teach-item .cn-name { color: var(--theme); }
+.teach-item p { margin: 0 0 .2rem; font-size: .95rem; }
+
+/* ---------------- Awards ---------------- */
+.award-list { list-style: none; margin: 1rem 0 0; padding: 0; }
+.award-list li { padding: .55rem 0; border-bottom: 1px dashed var(--divider); display: flex; gap: .8rem; align-items: baseline; flex-wrap: wrap; }
+.award-list li:last-child { border-bottom: none; }
+.award-name { font-weight: 600; }
+.award-note { color: var(--text-light); font-size: .9rem; }
+.award-year { margin-left: auto; color: var(--text-light); font-size: .88rem; white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+/* ---------------- Social icons ---------------- */
+.social-row { display: flex; gap: .8rem; margin-top: 1rem; align-items: center; }
+.social-row a { color: var(--text-light); font-size: 1.25rem; text-decoration: none !important; }
+.social-row a:hover { color: var(--theme); }
+.social-row .label { font-size: .85rem; color: var(--text-light); }
+
+/* ---------------- Footer ---------------- */
+footer {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 999;
+  background: var(--footer-bg); color: var(--footer-text);
+  font-size: .8rem; text-align: center; padding: .5rem 1rem;
+}
+footer a { color: #ddd; }
+footer a:hover { color: #fff; }
+
+/* ---------------- Utility ---------------- */
+.muted { color: var(--text-light); }
+.small { font-size: .85rem; }
+.placeholder-note {
+  background: rgba(230, 190, 60, .08); border: 1px dashed rgba(183,138,0,.45);
+  border-radius: 6px; padding: .6rem 1rem; font-size: .88rem;
+  color: var(--text-light); margin-top: 1.5rem;
+}
+.backlink { font-size: .88rem; margin-bottom: 2rem; display: inline-block; }
+
+/* ---------------- Responsive ---------------- */
+@media (max-width: 720px) {
+  .profile { gap: 1.5rem; }
+  .profile-img { flex: 1 1 100%; }
+  .profile-img img { width: 200px; height: 233px; }
+  .pub-featured { flex-direction: column; gap: .8rem; }
+  .pub-abbr { flex: 1 1 auto; display: inline-block; padding: .35rem .7rem; }
+  .page-header h1 { font-size: 1.7rem; }
+  .profile-info h1 { font-size: 1.8rem; }
+  .award-year { margin-left: 0; }
+}
